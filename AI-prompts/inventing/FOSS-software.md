@@ -11,6 +11,8 @@ Plan the implementation of the following project in this repository:
 
 [project requirements]
 
+- principle language: 
+- manage dependency and project packaging with: 
 - 100% FOSS: zero proprietary dependency
 - modularity
   - each function does one small thing and one small thing only
@@ -27,7 +29,9 @@ You must create `./dev/plans/0-init-plan.md` and in it:
 - Propose at least one project architecture and illustrate it in a tree diagram
 - Propose at least one tech stack and illustrate it in a markdown table
 - Outline main dependencies in a multi-level markdown list for each proposed stack
-
+- Outline a multi-phase implementation plan for your best proposal
+  - with a rapid minimum viable prototype
+  - and subsequent progressive improvements
 
 ## Requirements
 

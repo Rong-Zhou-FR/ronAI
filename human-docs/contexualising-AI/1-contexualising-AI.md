@@ -58,6 +58,16 @@ enc = .enc semantic file format
   Instead: Use proper logging library with levels
 ```
 
+### Point it to relevant resources, as you would do to a human collegue
+
+![AI-scroll](/home/rongzhou/kodo/ronAI/human-docs/img/AI-scroll.png)
+
+Just like less experienced human developers may search on google while `man` or official docs are readily available, your AI friend can make that mistake as well.
+
+If they are searching on a popular topic, they would usually find some good secondary sources. However, if it is about a less common concept, they will quickly be overwhelmed, just like humans.
+
+So, kindly point your AI friend in the right direction when you can. Tell them where the primary documentations are.
+
 ### Iterate and cooperate
 
 - add rules when your AI friend make repeated mistakes 
