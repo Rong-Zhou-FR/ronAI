@@ -57,6 +57,33 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ---
 
+## Testing Requirements
+
+### Test Framework & Execution
+
+| Aspect | Convention |
+|--------|-----------|
+| Framework | [test-framework, e.g. pytest/vitest] |
+| Run all tests | [command, e.g. `pytest tests/`] |
+| Run single test file | [command, e.g. `pytest tests/test_foo.py -v`] |
+| Test directory | [path, e.g. `tests/`] |
+
+### Testing Principles
+
+1. **Test via the public API wherever possible.** Prefer integration tests over isolated unit tests. Mock external services (APIs, databases) only at system boundaries.
+2. **Do not test directly via backend API alone — test through the user-facing interface** (CLI commands, GUI interactions). The end-to-end flow matters more than internal function coverage.
+3. **When the project has a web UI, prefer automated E2E scripts over the interactive browser tool.** E2E scripts are fast, deterministic, and catch regressions without fragile session management. Use the interactive browser (`headed: true`) only as a last resort for manual debugging — in-flight tool calls are interrupted if the user types "continue" mid-action, leaving the browser in an inconsistent state.
+4. **Console errors in browser tests indicate real bugs** — fix them even if tests pass. Common patterns: `TypeError: Cannot read properties of undefined`, `ReferenceError: Cannot access 'x' before initialization` (often a circular dependency in Svelte/Vue/React state).
+5. **Every bug fix must include a test that would have caught the regression.**
+
+### E2E / GUI Testing (web projects)
+
+- Define the dev server start command and test data setup in the project's own `AGENTS.md` (or `scripts/AGENTS-scripts.md`).
+- Existing E2E test scripts live in `[test-directory]` and should be the primary verification tool.
+- When E2E tests do not yet exist, check the project's `AGENTS.md` or `scripts/AGENTS-scripts.md` for the test framework, dev server setup, and conventions. Create tests following the project's existing style.
+
+---
+
 ## What to Avoid
 
 - Do not use [deprecated libraries]
